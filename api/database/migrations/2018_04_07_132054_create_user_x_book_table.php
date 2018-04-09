@@ -14,7 +14,7 @@ class CreateUserXBookTable extends Migration
     public function up()
     {
         Schema::create('user_x_book', function (Blueprint $table) {
-            $table->increments('id')->unique();
+            $table->increments('id');
             $table->integer('users_id');
             $table->integer('book_id');
             $table->dateTime('rent_time')->comment('借出时间');
