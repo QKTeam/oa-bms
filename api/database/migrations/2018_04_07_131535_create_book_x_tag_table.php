@@ -14,7 +14,7 @@ class CreateBookXTagTable extends Migration
     public function up()
     {
         Schema::create('book_x_tag', function (Blueprint $table) {
-            $table->increments('id')->unique();
+            $table->increments('id');
             $table->integer('tag_id');
             $table->integer('book_id');
             $table->timestamps();
