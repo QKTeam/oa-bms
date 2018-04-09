@@ -14,7 +14,7 @@ class CreateBookTable extends Migration
     public function up()
     {
         Schema::create('book', function (Blueprint $table) {
-            $table->increments('id')->unique();
+            $table->increments('id');
             $table->string('name');
             $table->string('description')->nullable()->comment('描述');
             $table->boolean('available')->default(true)->comment('true代表能借到');
