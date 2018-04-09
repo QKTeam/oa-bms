@@ -19,6 +19,7 @@ class CreateUserXBookTable extends Migration
             $table->integer('book_id');
             $table->dateTime('rent_time')->comment('借出时间');
             $table->dateTime('return_time')->comment('应当归还时间');
+            $table->timestamps();
         });
     }
 

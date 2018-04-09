@@ -17,6 +17,7 @@ class CreateTagTable extends Migration
             $table->increments('id')->unique();
             $table->integer('name')->unique()->comment('标签名');
             $table->integer('count')->default(0)->comment('该类标签有多少书');
+            $table->timestamps();
         });
     }
 
