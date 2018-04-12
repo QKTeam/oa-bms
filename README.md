@@ -21,11 +21,14 @@ php artisan php artisan migrate
 
 `front-end`
 
-```python
+> 我已将vue.js官方脚手架工具vue-cli搭建好了(名称：front-end),其它具体信息请进入该文件中的package.json中查看。
 
+```python
+cd app
+npm install
 ```
 
-我已将vue.js官方脚手架工具vue-cli搭建好了(名称：front-end),其它具体信息请进入该文件中的package.json中查看。
+
 
 
 
@@ -33,5 +36,9 @@ php artisan php artisan migrate
 
 * 2018-03-26
     * init project
-
+* 2018-04-09
+    * create migration
+* 2018-04-11
+    * init front-end
+    
 #### future
