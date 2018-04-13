@@ -40,5 +40,7 @@ npm install
     * create migration
 * 2018-04-11
     * init front-end
+* 2018-04-13
+    * create doc
     
 #### future
