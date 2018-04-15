@@ -17,7 +17,7 @@ class CreateBookXTagTable extends Migration
             $table->increments('id')->unique();
             $table->integer('tag_id');
             $table->integer('book_id');
-            $table->timestamps();
+            $table->timestamps();   
         });
     }
 
