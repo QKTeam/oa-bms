@@ -19,7 +19,7 @@ class CreateBookTable extends Migration
             $table->string('description')->nullable()->comment('描述');
             $table->boolean('available')->default(true)->comment('true代表能借到');
             $table->string('e_book')->nullable()->comment('电子书的路径');
-            $table->dateTime('next_available_time')->nullable()->comment('下次能借到的时间');
+            $table->timestamp('next_available_time')->nullable()->comment('下次能借到的时间');
             $table->timestamps();
         });
     }

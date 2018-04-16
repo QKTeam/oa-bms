@@ -15,10 +15,10 @@ class CreateUserXBookTable extends Migration
     {
         Schema::create('user_x_book', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('users_id');
+            $table->integer('user_id');
             $table->integer('book_id');
-            $table->dateTime('rent_time')->comment('借出时间');
-            $table->dateTime('return_time')->comment('应当归还时间');
+            $table->timestamp('rent_time')->comment('借出时间');
+            $table->timestamp('return_time')->comment('应当归还时间');
             $table->timestamps();
         });
     }
