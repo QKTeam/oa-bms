@@ -15,6 +15,7 @@ name | required | description
 token / remember_token | true | token for portal
 name | true | name of book
 description | true | description of book
+isbn | true | isbn of the book
 
 Example:
 
@@ -22,7 +23,8 @@ Example:
 {
     "token": "ad66f144-191d-473d-b25e-d8bb073c48c0",
     "name": "汇编语言",
-    "description": "这是汇编语言"
+    "description": "这是汇编语言",
+    "isbn": "9787121060748"
 }
 ```
 
@@ -72,17 +74,23 @@ Response:
   {
     "id": 1,
     "name": "汇编语言",
-    "description": "这是一本汇编语言"
+    "description": "这是一本汇编语言",
+    "available": true,
+    "next_available_time": null
   },
   {
     "id": 2,
     "name": "汇编语言",
-    "description": "这是另一本汇编语言"
+    "description": "这是另一本汇编语言",
+    "available": true,
+    "next_available_time": null
   },
   {
     "id": 3,
     "name": "汇编语言",
-    "description": "这是第三本汇编语言"
+    "description": "这是第三本汇编语言",
+    "available": true,
+    "next_available_time": null
   }
 ]
 ```
@@ -118,11 +126,15 @@ Response:
 ```json
 {
     "id": 1,
-    "name": "汇编语言",
-    "description": "这是一本汇编语言",
+    "name": "编程之美",
+    "description": "这是编程之美",
     "e_book": null,
     "available": true,
     "next_available_time": null,
+    "publisher": "电子工业出版社",
+    "publishDate": "2008-03-01",
+    "authors": "《编程之美》小组",
+    "img_url": "https://images.isbndb.com/covers/07/48/9787121060748.jpg"
 }
 ```
 
@@ -131,11 +143,15 @@ Response:
 ```json
 {
     "id": 1,
-    "name": "汇编语言",
-    "description": "这是一本汇编语言",
+    "name": "编程之美",
+    "description": "这是编程之美",
     "e_book": null,
     "available": false,
     "next_available_time": "2018-05-04 17:34:33",
+    "publisher": "电子工业出版社",
+    "publishDate": "2008-03-01",
+    "authors": "《编程之美》小组",
+    "img_url": "https://images.isbndb.com/covers/07/48/9787121060748.jpg"
 }
 ```
 
@@ -156,31 +172,9 @@ name | required | description
 --- | --- | ---
 book_id | true | id of the book which your want to change
 token / remember_token | true | token for portal
-name | false | new name of book
 description | false | new description of book
 
 Example:
-
-`修改名字和描述`
-
-```json
-{
-    "book_id": 1,
-    "token": "ad66f144-191d-473d-b25e-d8bb073c48c0",
-    "name": "new 汇编",
-    "description": "new description"
-}
-```
-
-`仅修改名字`
-
-```json
-{
-    "book_id": 1,
-    "token": "ad66f144-191d-473d-b25e-d8bb073c48c0",
-    "name": "new 汇编"
-}
-```
 
 `仅修改描述`
 
@@ -204,15 +198,6 @@ Response:
 
 - `code 401`    用户未登录或token失效
 - `code 403`    用户没有管理员权限
-- `code 422`    请求参数出错
-
-```json
-{
-    "book_id": [
-        "The book_id field is required."
-    ]
-}
-```
 
 ## Delete book
 
@@ -234,7 +219,7 @@ Example:
 ```json
 {
     "book_id": 1,
-    "token": "ad66f144-191d-473d-b25e-d8bb073c48c0",
+    "token": "ad66f144-191d-473d-b25e-d8bb073c48c0"
 }
 ```
 

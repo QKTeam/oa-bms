@@ -2,7 +2,7 @@
 
 ## Rent a book
 
-Router: /api/rent
+Router: /api/rent/{book_id}
 
 Method: `PUT`
 
@@ -18,8 +18,7 @@ book_id | true | id of book
 Example:
 ```json
 {
-    "token": "ad66f144-191d-473d-b25e-d8bb073c48c0",
-    "book_id": 1,
+    "token": "ad66f144-191d-473d-b25e-d8bb073c48c0"
 }
 ```
 
@@ -30,7 +29,7 @@ Response:
 ```json
 {
     "status": 1,
-    "expired_at": "2018-05-04 17:34:33",
+    "expired_at": "2018-05-04 17:34:33"
 }
 ```
 
@@ -40,9 +39,6 @@ Response:
 {
     "token": [
         "The token field is required."
-    ],
-    "book_id": [
-        "The book_id field is required."
     ]
 }
 ```
@@ -51,7 +47,7 @@ Response:
 
 ## Revert a book
 
-Router: /api/revert
+Router: /api/revert/{book_id}
 
 Method: `PUT`
 
@@ -67,8 +63,7 @@ book_id | true | id of book
 Example:
 ```json
 {
-    "token": "ad66f144-191d-473d-b25e-d8bb073c48c0",
-    "book_id": 1,
+    "token": "ad66f144-191d-473d-b25e-d8bb073c48c0"
 }
 ```
 
@@ -78,7 +73,7 @@ Response:
 
 ```json
 {
-    "status": 1,
+    "status": 1
 }
 ```
 
@@ -89,9 +84,49 @@ Response:
 {
     "token": [
         "The token field is required."
-    ],
-    "book_id": [
-        "The book_id field is required."
+    ]
+}
+```
+
+## Rent List
+
+Router: /api/rent/list
+
+Method: `GET`
+
+Authorize: `Loged`
+
+Params:
+
+name | required | description
+--- | --- | ---
+token / remember_token | true | token for portal
+
+Example:
+```json
+{
+    "token": "ad66f144-191d-473d-b25e-d8bb073c48c0"
+}
+```
+
+Response:
+
+- `code 200`
+
+```json
+{
+    "count": 2,
+    "list": [
+        {
+            "id": 3,
+            "name": "汇编语言",
+            "description": "这是第三本汇编语言",
+        },
+        {
+            "id": 2,
+            "name": "汇编语言",
+            "description": "这是第二本汇编语言",
+        }
     ]
 }
 ```
